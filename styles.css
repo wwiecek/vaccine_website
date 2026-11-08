@@ -736,7 +736,7 @@ main.content .note-attribution a { color: inherit; }
   main.content .landing .topic-description { font-size: 12.5px; line-height: 1.35; }
 }
 
-/* Quarto owns theme persistence; the notes use a labelled control like BEAR. */
+/* Quarto owns theme persistence; all pages share the same responsive control. */
 .quarto-color-scheme-toggle { display: none; }
 .theme-toggle {
   background: transparent; border: 1px solid currentColor; border-radius: 4px;
@@ -758,18 +758,18 @@ main.content .note-attribution a { color: inherit; }
   }
   .theme-toggle-icon { display: block; flex: none; }
   .theme-toggle-label { display: none; }
-  body:not(:has(.landing)) .navbar-container { column-gap: .25rem; }
-  body:not(:has(.landing)) .navbar-brand-container {
+  .navbar-container { column-gap: .25rem; }
+  .navbar-brand-container {
     order: 1; flex: 1; min-width: 0; margin-inline: 0 !important;
   }
-  body:not(:has(.landing)) .navbar-brand {
+  .navbar-brand {
     display: block; overflow: hidden; text-overflow: ellipsis;
     white-space: nowrap; margin-right: 0;
   }
-  body:not(:has(.landing)) .navbar-toggler { order: 0; padding: .25rem; }
-  body:not(:has(.landing)) .quarto-navbar-tools { order: 2; }
-  body:not(:has(.landing)) #quarto-search { order: 3; }
-  body:not(:has(.landing)) .navbar-collapse { order: 4; flex-basis: 100%; }
+  .navbar-toggler { order: 0; padding: .25rem; }
+  .quarto-navbar-tools { order: 2; }
+  #quarto-search { order: 3; }
+  .navbar-collapse { order: 4; flex-basis: 100%; }
 }
 
 body.quarto-dark:not(:has(.landing)) {
@@ -798,6 +798,19 @@ body.quarto-dark #TOC .nav-link:hover { color: var(--link) !important; }
 body.quarto-dark main.content table { background: #202d32; }
 body.quarto-dark main.content table th { background: #30413f; }
 body.quarto-dark main.content table tbody tr:nth-child(even) { background: #26353b; }
+/* The landing page keeps its navy introduction in both themes. */
+body.quarto-dark .landing { --ink: #e6ecea; --link: #9bd6d1; }
+body.quarto-dark main.content .landing .basics { background: #192328; }
+body.quarto-dark main.content .landing .further { background: #26353b; }
+body.quarto-dark main.content .landing .basics .eyebrow,
+body.quarto-dark main.content .landing .further .eyebrow { color: var(--mint); }
+body.quarto-dark main.content .landing .topic-description,
+body.quarto-dark main.content .landing .section-note { color: #bdccc7; }
+body.quarto-dark main.content .landing .section-links,
+body.quarto-dark main.content .landing .section-links a,
+body.quarto-dark main.content .landing .target-link,
+body.quarto-dark main.content .landing .research { border-color: #415057; }
+
 @media print {
   .theme-toggle { display: none; }
 }

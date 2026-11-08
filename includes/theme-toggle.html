@@ -2,33 +2,30 @@
 document.addEventListener('DOMContentLoaded', () => {
   const meta = document.querySelector('meta[name="color-scheme"]');
   const sync = () => {
-    const dark = Boolean(document.querySelector('.landing')) ||
-      document.body.classList.contains('quarto-dark');
+    const dark = document.body.classList.contains('quarto-dark');
     const scheme = dark ? 'dark' : 'light';
     meta.content = scheme;
     document.documentElement.style.colorScheme = scheme;
     toggle?.setAttribute('aria-pressed', String(dark));
   };
   let toggle;
-  if (!document.querySelector('.landing')) {
-    const native = document.querySelector('.quarto-color-scheme-toggle');
-    if (native) {
-      toggle = document.createElement('button');
-      toggle.type = 'button';
-      toggle.className = 'theme-toggle';
-      toggle.setAttribute('aria-label', 'Toggle theme');
-      toggle.title = 'Toggle theme';
-      toggle.innerHTML = `<svg class="theme-toggle-icon" width="20" height="20"
-          viewBox="0 0 20 20" aria-hidden="true">
-        <circle cx="10" cy="10" r="8" fill="white" stroke="white" />
-        <path d="M10 2a8 8 0 0 0 0 16Z" fill="black" />
-      </svg><span class="theme-toggle-label">Toggle theme</span>`;
-      toggle.addEventListener('click', () => {
-        window.quartoToggleColorScheme();
-        sync();
-      });
-      native.before(toggle);
-    }
+  const native = document.querySelector('.quarto-color-scheme-toggle');
+  if (native) {
+    toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'theme-toggle';
+    toggle.setAttribute('aria-label', 'Toggle theme');
+    toggle.title = 'Toggle theme';
+    toggle.innerHTML = `<svg class="theme-toggle-icon" width="20" height="20"
+        viewBox="0 0 20 20" aria-hidden="true">
+      <circle cx="10" cy="10" r="8" fill="white" stroke="white" />
+      <path d="M10 2a8 8 0 0 0 0 16Z" fill="black" />
+    </svg><span class="theme-toggle-label">Toggle theme</span>`;
+    toggle.addEventListener('click', () => {
+      window.quartoToggleColorScheme();
+      sync();
+    });
+    native.before(toggle);
   }
   new MutationObserver(sync).observe(document.body,
     {attributes: true, attributeFilter: ['class']});
