@@ -330,6 +330,13 @@ main.content .landing .letter {
 main.content .landing .letter p {
   margin: 0px 0px 15px;
 }
+main.content .landing .letter .update-notice {
+  padding: 10px 14px;
+  border-left: 3px solid #e6c77f;
+  background: #e6c77f1a;
+  color: #fff0ca;
+  font-style: normal;
+}
 main.content .landing .letter .signature {
   margin: 18px 0px 24px; color: var(--mint); font-style: normal;
 }

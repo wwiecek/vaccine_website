@@ -28,9 +28,10 @@ format:
         <p>This webpage is supposed to be an accessible introduction to the topic.
 		  The material is divided into topic and you don't have to read it in
 		  order. Information is compiled from a few white papers and
-		  journal publications I wrote on optimal dosing of vaccines.
-          A lot of this material was written in early 2024 and I am
-		  working on updating it. </p>
+		  journal publications I wrote on optimal dosing of vaccines.</p>
+
+        <p class="update-notice"><strong>A lot of this material was written
+          in early 2024 and I am working on updating it.</strong></p>
 
 		<p> All of the words
           on this web page were written by me, with AI used for fact
